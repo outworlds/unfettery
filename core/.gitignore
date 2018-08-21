@@ -1,0 +1,9 @@
+# dependencies
+/node_modules
+
+# generated
+docs/
+reports/
+
+# Mac OS X
+.DS_Store

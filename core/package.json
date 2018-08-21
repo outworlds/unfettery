@@ -1,0 +1,26 @@
+{
+    "name": "unfetter-core",
+    "version": "1.0.0-0.1",
+    "description": "Unfetter basics, including STIX",
+    "main": "./lib",
+    "scripts": {
+        "test": "npm run compileswagger && swagger project test"
+    },
+    "keywords": [
+        "unfetter"
+    ],
+    "author": "Unfetter",
+    "license": "MIT",
+    "devDependencies": {
+        "@types/jasmine": "^2.8.8",
+        "jasmine-core": "^3.1.0",
+        "karma": "^2.0.4",
+        "karma-chrome-launcher": "^2.2.0",
+        "karma-jasmine": "^1.1.2",
+        "karma-webpack": "^3.0.0",
+        "ts-loader": "^4.4.2",
+        "typescript": "^2.9.2",
+        "webpack": "^4.16.2",
+        "webpack-dev-server": "^3.1.5"
+    }
+}
