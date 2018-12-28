@@ -1,0 +1,28 @@
+@import '../../../assets/styles/variables';
+
+#logo-image {
+    max-width: 350px;
+    margin-top: 30px;
+    padding: 24px;
+}
+
+.welcome-text {
+    font-size: 21px;
+    color: #6A6A6A;
+}
+
+#unfetter-screenshot {
+    width: 100%;
+    padding-top: 50px;
+    background: url('/assets/images/dashboards/unfetter_header3_sm_bkgd.png') center / auto 100% no-repeat;
+
+    img {
+        max-width: 100%;
+    }
+}
+
+#screenshot-caption {
+    font-weight: 300;
+    font-size: 40px;
+    color: $primary-color;
+}

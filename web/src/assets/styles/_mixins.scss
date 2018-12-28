@@ -1,0 +1,278 @@
+@import 'variables';
+
+@mixin themePrimaryColors ($properties...) {
+    @each $property in $properties {
+        .analytic-hub-theme & {
+            #{$property}: $analytic-exchange-primary;
+        }
+        .threat-dashboard-theme & {
+            #{$property}: $threat-dashboard-primary;
+        }
+        .assessments-theme & {
+            #{$property}: $assessments-primary;
+        }
+        .events-theme & {
+            #{$property}: $events-primary;
+        }
+        #{$property}: $primary-color;
+    }
+}
+
+@mixin themePrimaryLightColors ($properties...) {
+    @each $property in $properties {
+        .analytic-hub-theme & {
+          #{$property}: $analytic-exchange-primary-light;
+        }
+        .threat-dashboard-theme & {
+          #{$property}: $threat-dashboard-primary-light;
+        }
+        .assessments-theme & {
+          #{$property}: $assessments-primary-light;
+        }
+        .events-theme & {
+          #{$property}: $events-primary-light;
+        }
+        #{$property}: $primary-color-light;
+    }
+}
+
+@mixin themePrimaryLighterColors ($properties...) {
+    @each $property in $properties {
+        .analytic-hub-theme & {
+            #{$property}: $analytic-exchange-primary-lighter;
+        }
+        .threat-dashboard-theme & {
+            #{$property}: $threat-dashboard-primary-light; // When threat dash is reworked this should be fixed
+        }
+        .assessments-theme & {
+            #{$property}: $assessments-primary-lighter;
+        }
+        .events-theme & {
+            #{$property}: $events-primary-lighter;
+        }
+        #{$property}: $primary-color-lighter;
+    }
+}
+
+@mixin themePrimaryLightestColors ($properties...) {
+    @each $property in $properties {
+        .analytic-hub-theme & {
+            #{$property}: $analytic-exchange-primary-lightest;
+        }
+        .threat-dashboard-theme & {
+            #{$property}: $threat-dashboard-primary-lightest;
+        }
+        .assessments-theme & {
+            #{$property}: $assessments-primary-lightest;
+        }
+        .events-theme & {
+            #{$property}: $events-primary-lightest;
+        }
+        #{$property}: $primary-color-lightest;
+    }
+}
+
+@mixin themeAccentColors ($properties...) {
+    @each $property in $properties {
+        .analytic-hub-theme & {
+          #{$property}: $analytic-exchange-accent;
+        }
+        .threat-dashboard-theme & {
+          #{$property}: $threat-dashboard-accent;
+        }
+        .assessments-theme & {
+          #{$property}: $assessments-accent;
+        }
+        .events-theme & {
+          #{$property}: $events-accent;
+        }
+        #{$property}: $accent-color;
+    }
+}
+
+@mixin themePrimaryText () {
+    .analytic-hub-theme & {
+        color: $analytic-exchange-primary-text;
+    }
+    .threat-dashboard-theme & {
+        color: $threat-dashboard-primary-text;
+    }
+    .assessments-theme & {
+        color: $assessments-primary-text;
+    }
+    .events-theme & {
+        color: $events-primary-text;
+    }
+    color: $primary-text-default;
+}
+
+@mixin themePrimaryContrastText () {
+    .analytic-hub-theme & {
+        color: $analytic-exchange-primary-contrast-text;
+    }
+    .threat-dashboard-theme & {
+        color: $threat-dashboard-primary-contrast-text;
+    }
+    .assessments-theme & {
+        color: $assessments-primary-contrast-text;
+    }
+    .events-theme & {
+        color: $events-primary-contrast-text;
+    }
+    color: $primary-text-contrast-color;
+}
+
+@mixin themePrimaryTextProp ($property) {
+    .analytic-hub-theme & {
+        #{$property}: $analytic-exchange-primary-text;
+    }
+    .threat-dashboard-theme & {
+        #{$property}: $threat-dashboard-primary-text;
+    }
+    .assessments-theme & {
+        #{$property}: $assessments-primary-text;
+    }
+    .events-theme & {
+        #{$property}: $events-primary-text;
+    }
+    #{$property}: $primary-text-default;
+}
+
+@mixin themeAccentText () {
+    .analytic-hub-theme & {
+        color: $analytic-exchange-accent-text;
+    }
+    .threat-dashboard-theme & {
+        color: $threat-dashboard-accent-text;
+    }
+    .assessments-theme & {
+        color: $assessments-accent-text;
+    }
+    .events-theme & {
+        color: $events-accent-text;
+    }
+    color: $primary-text-contrast-color;
+}
+
+@mixin themeAccentFill () {
+    .analytic-hub-theme & {
+        fill: $analytic-exchange-accent;
+    }
+    .threat-dashboard-theme & {
+        fill: $threat-dashboard-accent;
+    }
+    .assessments-theme & {
+        fill: $assessments-accent;
+    }
+    .events-theme & {
+        fill: $events-accent;
+    }
+    fill: $accent-color;
+}
+
+@mixin lightenPrimaryColors ($property, $percent) {
+    .analytic-hub-theme & {
+        #{$property}: rgba-to-rgb(rgba($analytic-exchange-primary, $percent));
+    }
+    .threat-dashboard-theme & {
+        #{$property}: rgba-to-rgb(rgba($threat-dashboard-primary, $percent));
+    }
+    .assessments-theme & {
+        #{$property}: rgba-to-rgb(rgba($assessments-primary, $percent));
+    }
+    .events-theme & {
+      #{$property}: rgba-to-rgb(rgba($events-primary, $percent));
+    }
+    #{$property}: rgba-to-rgb(rgba($primary-color, $percent));
+}
+
+@mixin lightenAccentColors ($property, $percent) {
+    .analytic-hub-theme & {
+        #{$property}: rgba-to-rgb(rgba($analytic-exchange-accent, $percent));
+    }
+    .threat-dashboard-theme & {
+        #{$property}: rgba-to-rgb(rgba($threat-dashboard-accent, $percent));
+    }
+    .assessments-theme & {
+        #{$property}: rgba-to-rgb(rgba($assessments-accent, $percent));
+    }
+    .events-theme & {
+        #{$property}: rgba-to-rgb(rgba($events-accent, $percent));
+    }
+    #{$property}: rgba-to-rgb(rgba($accent-color, $percent));
+}
+
+@mixin darkenPrimaryColors ($property, $percent) {
+    .analytic-hub-theme & {
+        #{$property}: darken($analytic-exchange-primary, $percent);
+    }
+    .threat-dashboard-theme & {
+        #{$property}: darken($threat-dashboard-primary, $percent);
+    }
+    .assessments-theme & {
+        #{$property}: darken($assessments-primary, $percent);
+    }
+    .events-theme & {
+        #{$property}: darken($events-primary, $percent);
+    }
+    #{$property}: darken($primary-color, $percent);
+}
+
+@mixin darkenAccentColors ($property, $percent) {
+    .analytic-hub-theme & {
+        #{$property}: darken($analytic-exchange-accent, $percent);
+    }
+    .threat-dashboard-theme & {
+        #{$property}: darken($threat-dashboard-accent, $percent);
+    }
+    .assessments-theme & {
+        #{$property}: darken($assessments-accent, $percent);
+    }
+    .events-theme & {
+        #{$property}: darken($events-accent, $percent);
+    }
+    #{$property}: darken($accent-color, $percent);
+}
+
+@mixin themePrimaryColorsWithModifiedValue ($property, $modification) {
+    .analytic-hub-theme & {
+        #{$property}: #{$modification} $analytic-exchange-primary;
+    }
+    .threat-dashboard-theme & {
+        #{$property}: #{$modification} $threat-dashboard-primary;
+    }
+    .assessments-theme & {
+        #{$property}: #{$modification} $assessments-primary;
+    }
+    .events-theme & {
+        #{$property}: #{$modification} $events-primary;
+    }
+    #{$property}: #{$modification} $primary-color;
+}
+
+@mixin themeAccentColorsWithModifiedValue ($property, $modification) {
+    .analytic-hub-theme & {
+        #{$property}: #{$modification} $analytic-exchange-accent;
+    }
+    .threat-dashboard-theme & {
+        #{$property}: #{$modification} $threat-dashboard-accent;
+    }
+    .assessments-theme & {
+        #{$property}: #{$modification} $assessments-accent;
+    }
+    .events-theme & {
+        #{$property}: #{$modification} $events-accent;
+    }
+    #{$property}: #{$modification} $accent-color;
+}
+
+@mixin makeTriangle($color) {
+    position: absolute;
+    width: 0;
+    height: 0;
+    z-index: 1;
+    border-color: transparent;
+    border-style: dashed dashed solid;
+    border-width: 0 8.5px 8.5px;
+    border-bottom-color: $color;
+}

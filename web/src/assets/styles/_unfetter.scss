@@ -1,0 +1,126 @@
+// For custom unfetter elements not related to a vendor library
+@import 'variables';
+@import 'mixins';
+@import '~@angular/material/theming';
+
+.unf-collapsible-control {
+    display: inline-flex;
+    align-items: center;
+    background: #eee;
+    padding-left: 5px;
+    padding-right: 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    user-select: none;
+
+    .h5 {
+        margin: 0;
+    }
+
+    i {
+        @include themePrimaryColors('color');
+    }
+}
+
+@mixin unf-well-base {
+    padding: 19px;
+    margin-bottom: 10px;
+}
+
+.unf-well {
+    @include unf-well-base;
+    @include lightenPrimaryColors('background-color', 0.05);
+    @include themePrimaryColorsWithModifiedValue('border-left', '8px solid');
+}
+
+.unf-well-accent {
+    @include unf-well-base;
+    @include lightenAccentColors('background-color', 0.05);
+    @include themeAccentColorsWithModifiedValue('border-left', '8px solid');
+}
+
+.unf-well-warn {
+    @include unf-well-base;
+    background-color: rgba-to-rgb(rgba($warn-color, 0.05));
+    border-left: 8px solid $warn-color;
+}
+
+.unf-highlight {
+    @include themePrimaryColors('background-color');
+    color: $primary-text-contrast-color;
+    padding: 1px 4px;
+    border-radius: 3px;
+}
+
+.unf-nav-popup {
+    border-radius: $nav-popup-radius+px;
+    @include mat-elevation(5);
+}
+
+.mat-label, .unf-label {
+    color: rgba(0, 0, 0, 0.38);
+    font-weight: normal;
+    font-size: 12px;
+    margin-top: 2px;
+}
+
+.unf-badge {
+    color: white;
+    background: $neutral-color;
+    padding: 2.5px 8px;
+    border-radius: 11px;
+    font-size: 12px;
+}
+
+.unf-table {
+    width: 100%;
+    max-width: 100%;
+
+    th {
+        color: $dark-text-dimmed;
+        font-weight: 500;
+    }
+
+    tr {
+        >*:first-child {
+            padding-left: 24px;
+        }
+
+        >*:last-child {
+            padding-right: 24px;
+        }
+
+        border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+    }
+
+    td {
+        padding-top: $table-padding;
+        padding-bottom: $table-padding;
+    }
+
+    thead {
+        th {      
+            padding-bottom: $table-padding;
+            vertical-align: bottom;
+        }
+    }
+
+    tbody {
+        tr {
+            align-items: center;
+        }
+    }
+
+    .mat-icon-button-cell-wrapper {
+        margin-top: -10px;
+        margin-bottom: -10px;
+    }
+}
+
+.login-options {
+    width: 180px;
+}
+
+.login-option {
+    margin-left: 16px;
+}

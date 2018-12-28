@@ -1,0 +1,5 @@
+<div id="bottom-banner">
+    <div *ngFor="let banner of banner$ | async" class="banner {{ banner.class }}">
+        <span class="banner-text">{{ banner.label }}</span>
+    </div>
+</div>

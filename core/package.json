@@ -4,22 +4,41 @@
     "description": "Unfetter basics, including STIX",
     "main": "./lib",
     "scripts": {
-        "test": "npm run compileswagger && swagger project test"
+        "clean": "rm -rf dist/ tsdocs/ coverage/ .nyc_output/ *.d.ts *.js",
+        "build": "tsc -v && tsc -p . --outDir dist",
+        "build:watch": "npm run build -- --watch",
+        "test": "jasmine-ts --config=jasmine.json",
+        "lint": "tsc -v && tslint -p .",
+        "docs": "typedoc --out tsdocs --ignoreCompilerErrors src/",
+        "coverage": "nyc --extension .ts --reporter=lcov --reporter=text-lcov npm test && nyc report"
     },
     "keywords": [
         "unfetter"
     ],
-    "author": "Unfetter",
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:webiator/unfettery.git"
+    },
+    "author": "Outworlder",
     "license": "MIT",
+    "dependencies": {
+        "uuid": "^3.3.2"
+    },
     "devDependencies": {
         "@types/jasmine": "^2.8.8",
+        "jasmine": "^3.3.1",
         "jasmine-core": "^3.1.0",
+        "jasmine-spec-reporter": "^4.2.1",
+        "jasmine-ts": "^0.3.0",
         "karma": "^2.0.4",
         "karma-chrome-launcher": "^2.2.0",
         "karma-jasmine": "^1.1.2",
         "karma-webpack": "^3.0.0",
         "ts-loader": "^4.4.2",
-        "typescript": "^2.9.2",
+        "ts-node": "^7.0.1",
+        "tslint": "^5.11.0",
+        "typedoc": "^0.13.0",
+        "typescript": "^3.2.2",
         "webpack": "^4.16.2",
         "webpack-dev-server": "^3.1.5"
     }

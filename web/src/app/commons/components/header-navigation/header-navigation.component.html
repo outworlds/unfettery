@@ -1,0 +1,137 @@
+<div id="top-banner">
+    <div *ngFor="let banner of banner$ | async" class="banner {{ banner.class }}">
+        <span class="banner-text">{{ banner.label }}</span>
+    </div>
+</div>
+
+<mat-toolbar id="unfetter-navigation" class="mat-elevation-z4" color="primary">
+
+    <a [routerLink]="['./']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="flex">
+        <div id="header-logo" *ngIf="themeClass$ | async as themeClass" class="{{ themeClass }}">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="200.914 20.913 49.23 27.174" height="35">
+                <g id="Group_40" data-name="Group 40" transform="translate(200.914 20.913)">
+                    <g id="Group_11" data-name="Group 11" transform="translate(0 4.488)">
+                        <path id="Path_19" data-name="Path 19" class="accent-white" d="M11.715,58.664c0,2.616-1.511,4.014-3.924,4.014-2.368,0-3.868-1.409-3.868-4.014V45.9H0V58.664a6.455,6.455,0,0,0,2.154,5.153,8.352,8.352,0,0,0,5.638,1.86,8.433,8.433,0,0,0,5.66-1.86,6.408,6.408,0,0,0,2.187-5.153V45.9H11.715V58.664Z" transform="translate(0 -45.212)"/>
+                        <path id="Path_20" data-name="Path 20" class="accent-white" d="M363.8,41.367h8.209V39.8h-7.78Z" transform="translate(-322.779 -39.8)"/>
+                        <path id="Path_21" data-name="Path 21" class="accent-white" d="M339.2,122.679h9.607V121.1h-9.133Z" transform="translate(-300.953 -111.933)"/>
+                        <path id="Path_22" data-name="Path 22" class="accent-white" d="M169.6,47.9V66.55H174V53.808l.056-.011,6.461,11.851,1.4-4.657L173.964,47.9Z" transform="translate(-150.476 -46.987)" />
+                    </g>
+                    <path id="accent-path" data-name="Path 23" d="M274.707,27.174l6.359-21.2.44-1.488L282.859,0h-2.03l-1.612,5.39L272.7,27.174Z" transform="translate(-241.951)" />
+                </g>
+            </svg>
+        </div>
+    </a>
+
+    <span *ngIf="title$ | async as title" id="title-wrapper">
+        <span id="spacer1" class="inline-block">&nbsp;</span>
+        <span id="title-bar">|</span>
+        <span id="spacer2" class="inline-block">&nbsp;</span>
+        <span id="title-text">{{ title | capitalize }}</span>
+    </span>
+
+    <span class="flex1">&nbsp;</span>
+
+    <!-- <ng-container *ngIf="!demoMode && !authService.loggedIn()">
+        <ng-container *ngIf="authServices && (authServices.length === 1)">
+        <a href="/api/auth/{{authServices[0]}}-login/">
+            <button id="login-button" mat-raised-button color="accent">Sign In / Register</button>
+        </a>
+        </ng-container>
+        <ng-container *ngIf="authServices && (authServices.length > 1)">
+        <button id="login-button" mat-raised-button *ngIf="!demoMode && !authService.loggedIn()"
+            [matMenuTriggerFor]="loginMenu" color="accent">Sign In / Register</button>
+        <mat-menu #loginMenu="matMenu" class="login-options" [overlapTrigger]="false">
+            <a *ngFor="let service of authServices" mat-button color="primary" href="/api/auth/{{service}}-login">
+            <img src="assets/images/logos/{{service}}.png" width="32" height="32">
+            <span class="login-option">... Using {{service | capitalize}}</span>
+            </a>
+        </mat-menu>
+        </ng-container>
+    </ng-container> -->
+
+    <!-- <span *ngIf="authService.loggedIn() && user$ | async as user" class="flex flexItemsCenter">   
+
+        <span id="appMenuWrapper">
+        <button mat-icon-button class="navButton" (click)="showAppMenu = !showAppMenu">
+            <mat-icon class="mat-24">apps</mat-icon>
+        </button>
+        <div id="appMenuTriangle" *ngIf="showAppMenu" @fadeInOut>&nbsp;</div>
+        <div *ngIf="showAppMenu && authService.loggedIn()" id="appMenuWindow" class="uf-nav-popup" @fadeInOut>
+            <div id="appList" class="flex">
+            <span *ngFor="let appItem of appList" class="appLinkWrapper">
+                <a routerLink="./{{ appItem.url }}" class="appLink" (click)="showAppMenu = false">
+                <img src="{{ appItem.icon }}" class="appItemImg">
+                <div class="appItemText">{{ appItem.title }}</div>
+                </a>
+            </span>
+            <span class="appLinkWrapper">
+                <a href="{{ swaggerUrl }}?token={{ encodedToken }}&RUN_MODE={{ runMode }}" target=_blank class="appLink">
+                <img src="{{ apiDocsIcon }}" class="appItemImg">
+                <div class="appItemText">API Explorer</div>
+                </a>
+            </span>
+            <span class="appLinkWrapper" *ngIf="authService.isAdmin() || runMode === 'DEMO'">
+                <a routerLink="./stix/attack-patterns" class="appLink" (click)="showAppMenu = false">
+                <img src="{{ stixIcon }}" class="appItemImg">
+                <div class="appItemText">STIX</div>
+                </a>
+            </span>
+            <span class="appLinkWrapper" *ngIf="authService.isOrgLeader()">
+                <a routerLink="./organizations" class="appLink" (click)="showAppMenu = false">
+                <img src="{{ orgLeaderIcon }}" class="appItemImg">
+                <div class="appItemText">Organizations</div>
+                </a>
+            </span>
+            <span class="appLinkWrapper" *ngIf="authService.isAdmin()">
+                <a routerLink="./admin" class="appLink" (click)="showAppMenu = false">
+                <img src="{{ adminIcon }}" class="appItemImg">
+                <div class="appItemText">Admin</div>
+                </a>
+            </span>
+            </div>      
+        </div>
+        </span>
+
+        <span id="notificationContainer" class="navButton" *ngIf="!demoMode">
+        <notification-window></notification-window>
+        </span>
+
+        <span id="accountWrapper" class="navButton" *ngIf="!demoMode">
+        <div class="cursor-pointer" (click)="showAccountMenu = !showAccountMenu">
+            <img *ngIf="user.avatar_url" id="avatar" class="smallAvatar" src="{{ user.avatar_url }}" alt="User">
+            <button mat-icon-button *ngIf="!user.avatar_url" id="accountBtn">
+            <mat-icon class="mat-24">account_circle</mat-icon>
+            </button>
+            <i class="material-icons" id="accountCaret">arrow_drop_down</i>
+        </div>    
+        <div *ngIf="showAccountMenu" id="accountMenuTriangle" @fadeInOut>&nbsp;</div>
+        <div *ngIf="showAccountMenu" id="accountMenuWindow" class="uf-nav-popup" @fadeInOut>    
+            <div *ngIf="user.userProfile !== null">
+            <strong>{{ user.userProfile.userName }}</strong>
+            </div>
+            <hr>
+            <div class="accountMenuLine">
+            <a routerLink="/users/settings" class="flexImportant flexItemsCenter">
+                <i class="material-icons">settings</i>
+                <span>&nbsp;&nbsp;Settings</span>
+            </a>
+            </div>
+            <div class="accountMenuLine">
+            <a routerLink="/users/profile/{{ user.userProfile._id }}" class="flexImportant flexItemsCenter">
+                <i class="material-icons">person_outline</i>
+                <span>&nbsp;&nbsp;Profile</span>
+            </a>
+            </div>
+            <hr>
+            <div class="accountMenuLine">
+            <a (click)="authService.logOut(); logoutStore()" class="flexImportant flexItemsCenter">
+                <i class="material-icons">exit_to_app</i>
+                <span>&nbsp;&nbsp;Sign Out</span>
+            </a>
+            </div>     
+        </div>
+        </span> 
+
+    </span> -->
+
+</mat-toolbar>

@@ -1,0 +1,18 @@
+@import '../assets/styles/variables';
+
+#unf-div {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    max-height: 100vh;
+
+    #unf-router {
+        flex: 1;
+        overflow-y: scroll;
+    }
+}
+@media screen and (orientation: landscape) and (max-device-height: 375px) {
+    #unf-div {
+        display: block;
+    }
+}

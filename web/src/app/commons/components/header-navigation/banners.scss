@@ -1,0 +1,29 @@
+.banner {
+    z-index: 10;
+    background-color: #777;
+    text-align: center;
+    font-size: 12px;
+}
+
+.dynamic {
+    background-color: black;
+    color: yellow;
+}
+
+.top-secret {
+    background-color: black;
+    font-weight: bold;
+    color: red;
+}
+
+.secret {
+    background-color: black;
+    font-weight: bold;
+    color: orange;
+}
+
+.confidential {
+    background-color: black;
+    font-weight: bold;
+    color: limegreen;
+}

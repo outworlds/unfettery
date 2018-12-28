@@ -1,0 +1,104 @@
+// WARNING do *NOT* override Angular material classes globally
+
+@import 'variables';
+@import '~@angular/material/theming';
+
+// Angular Material theming
+
+@include mat-core();
+
+$default-theme-primary: mat-palette($mat-indigo, 700);
+$default-theme-accent: mat-palette($mat-cyan, A400, A200, A700);
+$default-theme-warn: mat-palette($mat-deep-orange);
+$default-theme: mat-light-theme($default-theme-primary, $default-theme-accent, $default-theme-warn);
+@include angular-material-theme($default-theme);
+
+// See themes.enum.ts for the css selectors of themes
+
+$analytic-exchange-theme-primary: mat-palette($mat-cyan, 600);
+$analytic-exchange-theme-accent: mat-palette($mat-orange, A200, A100, A400);
+$analytic-exchange-theme-warn: mat-palette($mat-deep-orange);
+$analytic-exchange-theme: mat-light-theme($analytic-exchange-theme-primary, $analytic-exchange-theme-accent, $analytic-exchange-theme-warn);
+
+.analytic-hub-theme {
+    @include angular-material-theme($analytic-exchange-theme);
+}
+
+$threat-dashboard-theme-primary: mat-palette($mat-blue, 600);
+$threat-dashboard-theme-accent: mat-palette($mat-red, A200, A100, A400);
+$threat-dashboard-theme-warn: mat-palette($mat-deep-orange);
+$threat-dashboard-theme: mat-light-theme($threat-dashboard-theme-primary, $threat-dashboard-theme-accent, $threat-dashboard-theme-warn);
+
+.threat-dashboard-theme {
+    @include angular-material-theme($threat-dashboard-theme);
+}
+
+$assessments-theme-primary: mat-palette($mat-blue-grey, 400);
+$assessments-theme-accent: mat-palette($mat-indigo, A200, A100, A400);
+$assessments-theme-warn: mat-palette($mat-deep-orange);
+$assessments-theme: mat-light-theme($assessments-theme-primary, $assessments-theme-accent, $assessments-theme-warn);
+
+.assessments-theme {
+    @include angular-material-theme($assessments-theme);
+}
+
+$events-theme-primary: mat-palette($mat-green, 600);
+$events-theme-accent: mat-palette($mat-yellow, A200, A100, A400);
+$events-theme-warn: mat-palette($mat-deep-orange);
+$events-theme: mat-light-theme($events-theme-primary, $events-theme-accent, $events-theme-warn);
+
+.events-theme {
+    @include angular-material-theme($events-theme);
+}
+
+$utility-theme-primary: mat-palette($mat-blue, 600);
+$utility-theme-accent: mat-palette($mat-red, A200, A100, A400);
+$utility-theme-warn: mat-palette($mat-deep-orange);
+$utility-theme: mat-light-theme($utility-theme-primary, $utility-theme-accent, $utility-theme-warn);
+
+.utility-theme {
+    @include angular-material-theme($utility-theme);
+}
+
+// Angular Material Themes: *ALWAYS* nest in a class or id, *NOT* overrides
+
+mat-card.unf-mat-card {
+    transition: box-shadow 0.2s ease-in-out;
+
+    .mat-card-header-text {
+        margin: 0;
+    }
+
+    .mat-card-title {
+        font-size: 22px;
+        font-weight: 300;
+    }
+
+    .mat-card-actions {
+        text-align: right;
+    }
+
+    .mat-tab-body-content {
+        padding: 10px 3px 5px;
+    }
+
+    &.mat-card:hover {
+        @include mat-elevation(5);
+    }
+}
+
+.mat-toolbar {
+    transition: background 0.1s ease-in-out;
+}
+
+a.mat-icon-button {
+    outline: none !important;
+}
+
+a.mat-button {
+    text-decoration: none;
+}
+
+.mat-button a {
+    text-decoration: none;
+}
